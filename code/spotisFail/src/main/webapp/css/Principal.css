@@ -1,0 +1,98 @@
+*{
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+.layout1{
+    margin:0;
+    padding:0;
+}
+#layout1{
+    position: fixed;
+    height:160px;
+    background:#17889E;
+
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows: 15fr 5fr ;
+
+
+}
+#encabezado{
+    font-family:"Brygada 1918";
+    color:black;
+
+    display:grid;
+    grid-template-columns:auto;
+    grid-template-rows:auto;
+    justify-content:center;
+    align-content:center;
+}
+#menu{
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,1);
+
+    font-size:1.3em;
+    display:grid;
+    grid-template-columns: repeat( 4, auto);
+    grid-template-rows:auto;
+    justify-content:center;
+    align-content:center;
+    column-gap:10%;
+
+    padding:4px 0 8px ;
+    background:#ced4da;
+}
+
+.pagina{
+    font-family:"Brygada 1918";
+    font-color:black;
+    text-decoration:none;
+    border:2px solid black;
+    border-radius:10% / 50%;
+    padding: 1% 6% ;
+    grid-column:0 /0;
+    /* de esta forma quedan centrados todos los elementos*/
+    display:grid;
+    grid-template-columns:auto;
+    grid-template-rows:auto;
+    justify-content:center;
+    align-content:center;
+}
+.pagina:visited, .pagina:link{
+    color:black;
+    background:#ced4da;
+}
+.pagina:hover, .pagina:active{
+    color:#ced4da;
+    background:black;
+
+}
+
+
+.layout{
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+    grid-template-rows: 8fr 1fr;
+}
+#layoutDer{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background: moccasin;
+}
+#layoutCent{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    background: #17889E;
+}
+#layoutIzq{
+    grid-column: 3/4;
+    grid-row: 1/2;
+    background: #ced4da;
+}
+#layoutInf{
+    grid-column: 1/4;
+    grid-row: 2/3;
+    background: darkgrey;
+}

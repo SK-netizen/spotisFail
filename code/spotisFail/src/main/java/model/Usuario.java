@@ -3,7 +3,7 @@ package model;
 import java.util.Objects;
 
 public class Usuario {
-    private Integer id;
+    private Integer idUsuario;
     private String Nombre;
     private String Apellidos;
     private String email;
@@ -11,15 +11,15 @@ public class Usuario {
     private String password;
 
     public Usuario() {
-        id=-1;
+        idUsuario=-1;
         Nombre="";
         Apellidos="";
         email="";
         username="";
         password="";
     }
-    public Usuario(Integer id, String Nombre, String Apellidos, String email, String username, String password){
-        this.id=id;
+    public Usuario(Integer idUsuario, String Nombre, String Apellido, String email, String username, String password){
+        this.idUsuario=idUsuario;
         this.Nombre=Nombre;
         this.Apellidos=Apellidos;
         this.email=email;
@@ -28,11 +28,19 @@ public class Usuario {
     }
 
     public Integer getId() {
-        return id;
+        return idUsuario;
+    }
+
+    public String getApellido() {
+        return Apellidos;
     }
 
     public String getApellidos() {
         return Apellidos;
+    }
+
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
     public String getEmail() {
@@ -59,8 +67,8 @@ public class Usuario {
         this.email = email;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public void setNombre(String nombre) {
@@ -85,18 +93,18 @@ public class Usuario {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return id == usuario.id && Objects.equals(Nombre, usuario.Nombre) && Objects.equals(Apellidos, usuario.Apellidos) && Objects.equals(email, usuario.email) && Objects.equals(username, usuario.username) && Objects.equals(password, usuario.password);
+        return idUsuario == usuario.idUsuario && Objects.equals(Nombre, usuario.Nombre) && Objects.equals(Apellidos, usuario.Apellidos) && Objects.equals(email, usuario.email) && Objects.equals(username, usuario.username) && Objects.equals(password, usuario.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, Nombre, Apellidos, email, username, password);
+        return Objects.hash(idUsuario, Nombre, Apellidos, email, username, password);
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
-                "id=" + id +
+                "idUsuario=" + idUsuario +
                 ", Nombre='" + Nombre + '\'' +
                 ", Apellidos='" + Apellidos + '\'' +
                 ", email='" + email + '\'' +

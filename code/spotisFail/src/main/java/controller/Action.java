@@ -1,6 +1,5 @@
 package controller;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,13 +19,8 @@ public class Action extends HttpServlet {
 	public void processRequest(HttpServletRequest req, HttpServletResponse res)
 			throws IOException, ServletException {
 				String accion = req.getParameter("action");
-		if (accion.contains("Producto")) {
-			RequestDispatcher productos= getServletContext().getRequestDispatcher("/ProductosController");
-			productos.forward(req, res);
-		} else if (accion.contains("Usuario")) {
+		 if (accion.contains("Usuario")) {
 			req.getRequestDispatcher("/UsuarioController").forward(req, res);
-		} else if (accion.contains("Carta")) {
-			req.getRequestDispatcher("/CartaReyesController").forward(req, res);
 		}
 	}
 

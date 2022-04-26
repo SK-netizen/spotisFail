@@ -48,15 +48,18 @@ public class UsuarioController extends HttpServlet {
 
 		String username = req.getParameter("user");
 		String passRecibido = req.getParameter("password");
+
+		if(!username.equals("admin")){
+			passRecibido= String.valueOf(passRecibido.hashCode());
+		}
 		try {
-			
 			boolean result = userService.authenticate(username, passRecibido);
 			Usuario user = userService.getUserByUsername(username);
 			if (result == true) {
 				HttpSession session = req.getSession(true);
-				session.setAttribute("Id", String.valueOf(user.getId()));
+				session.setAttribute("idusuario", String.valueOf(user.getId()));
 				session.setAttribute("Nombre", user.getNombre());
-				session.setAttribute("Username", user.getUsername());
+				session.setAttribute("username", user.getUsername());
 				req.setAttribute("mensaje", "Autenticacion correcta");
 				req.getRequestDispatcher("WEB-INF/Principal.jsp").forward(req, res);
 			} else {
@@ -76,7 +79,7 @@ public class UsuarioController extends HttpServlet {
 		String apel = req.getParameter("apellidos");
 		String email = req.getParameter("email");
 		String username = req.getParameter("username");
-		String pass = req.getParameter("password");
+		String pass = String.valueOf(req.getParameter("password").hashCode());
 		Usuario usuario1 = new Usuario(-1, n, apel, email, username, pass);
 
 		try {

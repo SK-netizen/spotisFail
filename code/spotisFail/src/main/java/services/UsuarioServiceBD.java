@@ -28,14 +28,14 @@ public class UsuarioServiceBD implements UsuarioService{
 			synchronized (sentencia) {
 				// Cogemos todos los datos de la asignaturas
 				resultados = sentencia
-						.executeQuery("SELECT * FROM usuarios where username='"
+						.executeQuery("SELECT * FROM Usuario where username='"
 								+ username + "'");
 			}
 			if (resultados.next() == false) {
 				return null;
 			} else {
 				user = new Usuario(
-						Integer.parseInt(resultados.getString("id")),
+						Integer.parseInt(resultados.getString("idUsuario")),
 						resultados.getString("Nombre"),
 						resultados.getString("Apellidos"),
 						resultados.getString("email"),
@@ -67,14 +67,14 @@ public class UsuarioServiceBD implements UsuarioService{
 			synchronized (sentencia) {
 				// Cogemos todos los datos de la asignaturas
 				resultados = sentencia
-						.executeQuery("SELECT * FROM usuarios where userId='"
+						.executeQuery("SELECT * FROM Usuario where userId='"
 								+ userId + "'");
 			}
 			if (resultados.next() == false) {
 				return null;
 			} else {
 				user = new Usuario(
-						Integer.parseInt(resultados.getString("id")),
+						Integer.parseInt(resultados.getString("idUsuario")),
 						resultados.getString("Nombre"),
 						resultados.getString("Apellidos"),
 						resultados.getString("email"),
@@ -111,7 +111,7 @@ public class UsuarioServiceBD implements UsuarioService{
 
 			while (resultados.next()) {
 				user = new Usuario(
-						Integer.parseInt(resultados.getString("id")),
+						Integer.parseInt(resultados.getString("idUsuario")),
 						resultados.getString("Nombre"),
 						resultados.getString("Apellidos"),
 						resultados.getString("email"),
@@ -143,7 +143,7 @@ public class UsuarioServiceBD implements UsuarioService{
 		try {
 			Statement sentencia= ConexionUtil.openStatement();
 			synchronized (sentencia) {
-				String query = "INSERT INTO usuarios (nombre,apellidos,email,username,password) "
+				String query = "INSERT INTO Usuario (nombre,apellidos,email,username,password) "
 						+ "VALUES ('"
 						+ user.getNombre()
 						+ "','"
