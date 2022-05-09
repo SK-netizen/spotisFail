@@ -4,11 +4,22 @@ import java.util.Objects;
 
 public class Cancion {
     private Integer idCancion;
+
+    private Integer idUsuario;
     private Integer idArtista;
     private String UrlCancion;
     private String anio;
     private String nombreCancion;
     private String Genero;
+    public Cancion(Integer idCancion, Integer idUsuario, Integer idArtista, String UrlCancion, String anio, String nombreCancion, String genero){
+        this.idCancion=idCancion;
+        this.idUsuario=idUsuario;
+        this.idArtista=idArtista;
+        this.UrlCancion=UrlCancion;
+        this.anio=anio;
+        this.nombreCancion=nombreCancion;
+        this.Genero=genero;
+    }
 
     public Integer getIdArtista() {
         return idArtista;
@@ -32,6 +43,14 @@ public class Cancion {
 
     public String getUrlCancion() {
         return UrlCancion;
+    }
+
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public void setAnio(String anio) {

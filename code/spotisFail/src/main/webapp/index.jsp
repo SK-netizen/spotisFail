@@ -36,28 +36,26 @@
                     <input type="password" name="password" id="password" value="admin"/>
                 </div>
                 <div class="boton" id="buttonLogin">
-                    <input type="submit" value="Login"/>
+                    <input type="submit" value="Confirmar"/>
                     <input type="hidden" name="action" value="UsuarioLogin"/>
                 </div>
-                <div class="boton" id="buttonValidar">
+                <div class="boton" id="buttonRegistro">
                     <div>
-                        <a href="Registro.html">Registrarse</a>
+                        <a href="Registro.jsp">Registrarse</a>
                     </div>
                 </div>
             </div>
         </form>
     </div>
     <div id="layoutInf">
-        <div id="contentPie">
-            <div>
-                <p>Contenido pie pagina</p>
-            </div>
-            <div>
-                <p>666-666-666</p>
-            </div>
-            <div>
-                <p>rohermoso@alumnos.unex.es</p>
-            </div>
+        <div>
+            <p>Contenido pie pagina</p>
+        </div>
+        <div>
+            <p>666-666-666</p>
+        </div>
+        <div>
+            <p>rohermoso@alumnos.unex.es</p>
         </div>
     </div>
 </div>

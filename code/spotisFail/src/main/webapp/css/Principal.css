@@ -5,25 +5,23 @@
     padding:0;
 }
 
-.layout1{
-    margin:0;
-    padding:0;
+#grid{
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
 }
-#layout1{
-    position: fixed;
-    height:160px;
-    background:#17889E;
 
+#layout1{
+    grid-column: 1/4;
+    grid-row: 1/2;
+    background:#1f1f1f;
     display:grid;
     grid-template-columns:1fr;
     grid-template-rows: 15fr 5fr ;
-
-
 }
 #encabezado{
     font-family:"Brygada 1918";
-    color:black;
-
+    color:white;
     display:grid;
     grid-template-columns:auto;
     grid-template-rows:auto;
@@ -32,16 +30,14 @@
 }
 #menu{
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,1);
-
     font-size:1.3em;
     display:grid;
-    grid-template-columns: repeat( 4, auto);
+    grid-template-columns: repeat( 3, auto);
     grid-template-rows:auto;
     justify-content:center;
     align-content:center;
     column-gap:10%;
-
-    padding:4px 0 8px ;
+    padding:4px 0  ;
     background:#ced4da;
 }
 
@@ -67,32 +63,53 @@
 .pagina:hover, .pagina:active{
     color:#ced4da;
     background:black;
-
-}
-
-
-.layout{
-    display: grid;
-    grid-template-columns: 1fr 7fr 1fr;
-    grid-template-rows: 8fr 1fr;
 }
 #layoutDer{
+    margin:8px 0 0 0;
     grid-column: 1/2;
-    grid-row: 1/2;
-    background: moccasin;
+    grid-row: 2/3;
+    background: black;
+    color:white;
+    overflow-y:auto;
+    overflow-x:hidden;
+    display: grid;
+    align-content: start;
+}
+#layoutDer div{
+    margin:8px 0 0 0;
+    height: auto;
 }
 #layoutCent{
+    overflow-y:scroll;
+    overflow-x:scroll;
+
+    margin:8px 0 0 0;
     grid-column: 2/3;
-    grid-row: 1/2;
-    background: #17889E;
+    grid-row: 2/3;
+    background: #1f1f1f;
+    display: grid;
+    grid-template-rows: 1px;
+    align-content: start;
+    row-gap: 20px;
+}
+#layoutCent div{
+    padding-top: 5px;
+    height: 19px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
 }
 #layoutIzq{
+    margin:8px 0 0 0;
     grid-column: 3/4;
-    grid-row: 1/2;
-    background: #ced4da;
+    grid-row: 2/3;
+    background: black;
 }
 #layoutInf{
+    margin:8px 0 0 0;
     grid-column: 1/4;
-    grid-row: 2/3;
+    grid-row: 3/4;
     background: darkgrey;
 }

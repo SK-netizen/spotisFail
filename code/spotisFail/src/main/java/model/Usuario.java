@@ -1,5 +1,6 @@
 package model;
 
+import java.util.LinkedList;
 import java.util.Objects;
 
 public class Usuario {
@@ -9,6 +10,7 @@ public class Usuario {
     private String email;
     private String username;
     private String password;
+    private LinkedList<Lista> listaUsuario;
 
     public Usuario() {
         idUsuario=-1;
@@ -17,16 +19,21 @@ public class Usuario {
         email="";
         username="";
         password="";
+        listaUsuario=new LinkedList<Lista>();
     }
-    public Usuario(Integer idUsuario, String Nombre, String Apellido, String email, String username, String password){
+    public Usuario(Integer idUsuario, String Nombre, String Apellido, String email, String username, String password, LinkedList<Lista> lista){
         this.idUsuario=idUsuario;
         this.Nombre=Nombre;
         this.Apellidos=Apellidos;
         this.email=email;
         this.username=username;
         this.password=password;
+        listaUsuario=lista;
     }
 
+    public LinkedList<Lista> getListaUsuario() {
+        return listaUsuario;
+    }
     public Integer getId() {
         return idUsuario;
     }
@@ -59,6 +66,12 @@ public class Usuario {
         return username;
     }
 
+    public void setListaUsuario(LinkedList<Lista> listaUsuario) {
+        this.listaUsuario = listaUsuario;
+    }
+    public void setIdUsuario(Integer idUsuario){
+        this.idUsuario=idUsuario;
+    }
     public void setApellidos(String apellidos) {
         Apellidos = apellidos;
     }
@@ -84,16 +97,11 @@ public class Usuario {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return idUsuario == usuario.idUsuario && Objects.equals(Nombre, usuario.Nombre) && Objects.equals(Apellidos, usuario.Apellidos) && Objects.equals(email, usuario.email) && Objects.equals(username, usuario.username) && Objects.equals(password, usuario.password);
+        return idUsuario.equals(usuario.idUsuario) && Nombre.equals(usuario.Nombre) && Apellidos.equals(usuario.Apellidos) && email.equals(usuario.email) && username.equals(usuario.username) && password.equals(usuario.password) ;
     }
 
     @Override

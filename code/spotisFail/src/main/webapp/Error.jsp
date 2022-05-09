@@ -12,6 +12,6 @@
 </head>
 <body>
 <h1>Error</h1>
-<p><%request.getParameter("error");%></p>
+<p><%System.out.println(request.getParameter("error"));%></p>
 </body>
 </html>
