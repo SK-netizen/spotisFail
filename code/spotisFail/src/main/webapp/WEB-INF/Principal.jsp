@@ -14,8 +14,12 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Principal.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Principal.css?v=<%= System.currentTimeMillis()%>">
     <script charset="utf-8" src="${pageContext.request.contextPath}/js/Principal.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&family=Poppins:ital,wght@1,100;1,200&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -55,7 +59,38 @@
             }
         %>
     </div>
+    <%
+        String nombreLista="";
+        String urlLista="";
+        if (session.getAttribute("idListaA") != null) {
+            LinkedList<Lista> listasA = (LinkedList<Lista>) session.getAttribute("listas");
+            Iterator ot = listasA.iterator();
+            while (ot.hasNext()) {
+                Lista l = (Lista) ot.next();
+
+                if (l.getIdLista().toString().equals(session.getAttribute("idListaA"))) {
+                    nombreLista=l.getNombre();
+                    urlLista=l.getImage();
+                }
+            }
+        }
+
+    %>
     <div id="layoutCent">
+        <div id="infoLista" class="infoLista">
+            <div id="imageLista">
+                <div>
+                    <img src="<%out.print(urlLista);%>.jpeg" height="70px" width="70px">
+                </div>
+            </div>
+            <div id="nombreLista">
+                <div>
+                    <%
+                        out.print(nombreLista);
+                    %>
+                </div>
+            </div>
+        </div>
         <div id="cabeceraListas">
             <div class="cabecera" id="cabeceraCancion">
                 <div>
@@ -69,49 +104,56 @@
             </div>
         </div>
         <div id="nombreCancion" class="listaCanciones">
+            <%
+                if (session.getAttribute("idListaA") != null) {
+                    LinkedList<Lista> listasA = (LinkedList<Lista>) session.getAttribute("listas");
+                    Iterator ot = listasA.iterator();
+                    while (ot.hasNext()) {
+                        Lista l = (Lista) ot.next();
+
+                        if (l.getIdLista().toString().equals(session.getAttribute("idListaA"))) {
+                            LinkedList<Cancion> listaCancion = (LinkedList<Cancion>) l.getListaCancion();
+                            Iterator et = listaCancion.iterator();
+                            while (et.hasNext()) {
+                                Cancion cancion = (Cancion) et.next();
+            %>
             <div>
                 <%
-                    if (session.getAttribute("idListaA") != null) {
-                        LinkedList<Lista> listasA = (LinkedList<Lista>) session.getAttribute("listas");
-                        Iterator ot = listasA.iterator();
-                        while (ot.hasNext()) {
-                            Lista l = (Lista) ot.next();
-
-                            if (l.getIdLista().toString().equals(session.getAttribute("idListaA"))) {
-                                LinkedList<Cancion> listaCancion = (LinkedList<Cancion>) l.getListaCancion();
-                                Iterator et = listaCancion.iterator();
-                                while (et.hasNext()) {
-                                    Cancion cancion = (Cancion) et.next();
-                                    out.print(cancion.getNombreCancion());
-                                }
+                    out.print(cancion.getNombreCancion());
+                %>
+            </div>
+            <%
                             }
                         }
                     }
-                %>
-            </div>
+                }
+            %>
         </div>
         <div id="nombreArtista" class="listaCanciones">
+            <%
+                if (session.getAttribute("idListaA") != null) {
+                    LinkedList<Lista> listasA = (LinkedList<Lista>) session.getAttribute("listas");
+                    Iterator ot = listasA.iterator();
+                    while (ot.hasNext()) {
+                        Lista l = (Lista) ot.next();
+
+                        if (l.getIdLista().toString().equals(session.getAttribute("idListaA"))) {
+                            LinkedList<Cancion> listaCancion = (LinkedList<Cancion>) l.getListaCancion();
+                            Iterator et = listaCancion.iterator();
+                            while (et.hasNext()) {
+                                Cancion cancion = (Cancion) et.next();
+            %>
             <div>
                 <%
-                    if (session.getAttribute("idListaA") != null) {
-                        LinkedList<Lista> listasA = (LinkedList<Lista>) session.getAttribute("listas");
-                        Iterator ot = listasA.iterator();
-                        while (ot.hasNext()) {
-                            Lista l = (Lista) ot.next();
-
-                            if (l.getIdLista().toString().equals(session.getAttribute("idListaA"))) {
-                                LinkedList<Cancion> listaCancion = (LinkedList<Cancion>) l.getListaCancion();
-                                Iterator et = listaCancion.iterator();
-                                while (et.hasNext()) {
-                                    Cancion cancion = (Cancion) et.next();
-                                    out.print(cancion.getNombreArtista());
-                                }
+                    out.print(cancion.getNombreArtista());
+                %>
+            </div>
+            <%
                             }
                         }
                     }
-                %>
-            </div>
-
+                }
+            %>
         </div>
     </div>
     <div id="layoutIzq"></div>
