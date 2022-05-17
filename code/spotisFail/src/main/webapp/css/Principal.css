@@ -81,16 +81,46 @@
 }
 #layoutCent{
     overflow-y:scroll;
-    overflow-x:scroll;
-
     margin:8px 0 0 0;
     grid-column: 2/3;
     grid-row: 2/3;
     background: #1f1f1f;
+
     display: grid;
-    grid-template-rows: 1px;
+    grid-template-columns:auto auto;
+    grid-template-rows:auto auto;
+    justify-content: start;
+}
+
+#cabeceraListas{
+
+    grid-column:1/3;
+    grid-row:1/2;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+#cabeceraCancion{
+    grid-column: 1/2;
+}
+#cabeceraArtista{
+    grid-column: 2/3;
+}
+.listaCanciones{
+    display: grid;
+    grid-template-columns: 1fr;
     align-content: start;
     row-gap: 20px;
+}
+#nombreCancion{
+    grid-column:1/2;
+    grid-row:2/3;
+
+}
+#nombreArtista{
+    grid-column:2/3;
+    grid-row:2/3;
+
 }
 #layoutCent div{
     padding-top: 5px;

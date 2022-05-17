@@ -6,23 +6,23 @@ public class Cancion {
     private Integer idCancion;
 
     private Integer idUsuario;
-    private Integer idArtista;
+    private String nombreArtista;
     private String UrlCancion;
     private String anio;
     private String nombreCancion;
     private String Genero;
-    public Cancion(Integer idCancion, Integer idUsuario, Integer idArtista, String UrlCancion, String anio, String nombreCancion, String genero){
+    public Cancion(Integer idCancion, Integer idUsuario, String nombreArtista, String UrlCancion, String anio, String nombreCancion, String genero){
         this.idCancion=idCancion;
         this.idUsuario=idUsuario;
-        this.idArtista=idArtista;
+        this.nombreArtista=nombreArtista;
         this.UrlCancion=UrlCancion;
         this.anio=anio;
         this.nombreCancion=nombreCancion;
         this.Genero=genero;
     }
 
-    public Integer getIdArtista() {
-        return idArtista;
+    public String getNombreArtista() {
+        return nombreArtista;
     }
 
     public Integer getIdCancion() {
@@ -61,9 +61,10 @@ public class Cancion {
         Genero = genero;
     }
 
-    public void setIdArtista(Integer idArtista) {
-        this.idArtista = idArtista;
+    public void setNombreArtista(String nombreArtista) {
+        this.nombreArtista = nombreArtista;
     }
+
 
     public void setIdCancion(Integer idCancion) {
         this.idCancion = idCancion;
@@ -81,7 +82,7 @@ public class Cancion {
     public String toString() {
         return "Cancion{" +
                 "idCancion=" + idCancion +
-                ", idArtista=" + idArtista +
+                ", nombreArtista=" + nombreArtista +
                 ", UrlCancion='" + UrlCancion + '\'' +
                 ", anio='" + anio + '\'' +
                 ", nombreCancion='" + nombreCancion + '\'' +
@@ -94,11 +95,11 @@ public class Cancion {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cancion cancion = (Cancion) o;
-        return Objects.equals(idCancion, cancion.idCancion) && Objects.equals(idArtista, cancion.idArtista) && Objects.equals(UrlCancion, cancion.UrlCancion) && Objects.equals(anio, cancion.anio) && Objects.equals(nombreCancion, cancion.nombreCancion) && Objects.equals(Genero, cancion.Genero);
+        return Objects.equals(idCancion, cancion.idCancion) && Objects.equals(nombreArtista, cancion.nombreArtista) && Objects.equals(UrlCancion, cancion.UrlCancion) && Objects.equals(anio, cancion.anio) && Objects.equals(nombreCancion, cancion.nombreCancion) && Objects.equals(Genero, cancion.Genero);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCancion, idArtista, UrlCancion, anio, nombreCancion, Genero);
+        return Objects.hash(idCancion, nombreArtista, UrlCancion, anio, nombreCancion, Genero);
     }
 }

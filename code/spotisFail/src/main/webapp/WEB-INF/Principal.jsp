@@ -43,46 +43,76 @@
                 <div>
                     <input type="hidden" name="action" value="UsuarioListas"/>
                     <input type="hidden" name="idListaA" value="<%out.print(s.getIdLista());%>"/>
-                    <p onclick="enviar(<%out.print(s.getIdLista());%>)">
+                    <div class="buttonLista" onclick="enviar(<%out.print(s.getIdLista());%>)">
                         <%
                             out.print(s.getNombre());
                         %>
-                    </p>
+                    </div>
                 </div>
             </form>
         </div>
         <%
             }
         %>
-
     </div>
     <div id="layoutCent">
-        <%
-            if (session.getAttribute("idListaA") != null) {
-                LinkedList<Lista> listasA = (LinkedList<Lista>) session.getAttribute("listas");
-                Iterator ot = listasA.iterator();
-                while (ot.hasNext()) {
-                    Lista l = (Lista) ot.next();
-
-                    if (l.getIdLista().toString().equals (session.getAttribute("idListaA"))) {
-                        LinkedList<Cancion> listaCancion = (LinkedList<Cancion>) l.getListaCancion();
-                        Iterator et = listaCancion.iterator();
-                        while (et.hasNext()) {
-                            Cancion cancion = (Cancion) et.next();
-        %>
-        <div>
-            <p>
-                <%
-                    out.print(cancion.getNombreCancion());
-                %>
-            </p>
+        <div id="cabeceraListas">
+            <div class="cabecera" id="cabeceraCancion">
+                <div>
+                    Cancion
+                </div>
+            </div>
+            <div class="cabecera" id="cabeceraArtista">
+                <div>
+                    Artista
+                </div>
+            </div>
         </div>
-        <%
+        <div id="nombreCancion" class="listaCanciones">
+            <div>
+                <%
+                    if (session.getAttribute("idListaA") != null) {
+                        LinkedList<Lista> listasA = (LinkedList<Lista>) session.getAttribute("listas");
+                        Iterator ot = listasA.iterator();
+                        while (ot.hasNext()) {
+                            Lista l = (Lista) ot.next();
+
+                            if (l.getIdLista().toString().equals(session.getAttribute("idListaA"))) {
+                                LinkedList<Cancion> listaCancion = (LinkedList<Cancion>) l.getListaCancion();
+                                Iterator et = listaCancion.iterator();
+                                while (et.hasNext()) {
+                                    Cancion cancion = (Cancion) et.next();
+                                    out.print(cancion.getNombreCancion());
+                                }
+                            }
                         }
                     }
-                }
-            }
-        %>
+                %>
+            </div>
+        </div>
+        <div id="nombreArtista" class="listaCanciones">
+            <div>
+                <%
+                    if (session.getAttribute("idListaA") != null) {
+                        LinkedList<Lista> listasA = (LinkedList<Lista>) session.getAttribute("listas");
+                        Iterator ot = listasA.iterator();
+                        while (ot.hasNext()) {
+                            Lista l = (Lista) ot.next();
+
+                            if (l.getIdLista().toString().equals(session.getAttribute("idListaA"))) {
+                                LinkedList<Cancion> listaCancion = (LinkedList<Cancion>) l.getListaCancion();
+                                Iterator et = listaCancion.iterator();
+                                while (et.hasNext()) {
+                                    Cancion cancion = (Cancion) et.next();
+                                    out.print(cancion.getNombreArtista());
+                                }
+                            }
+                        }
+                    }
+                %>
+            </div>
+
+        </div>
     </div>
     <div id="layoutIzq"></div>
     <div id="layoutInf"></div>

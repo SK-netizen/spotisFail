@@ -192,6 +192,7 @@ public class UsuarioServiceBD implements UsuarioService {
 
     public void rellenar(Lista lista, String idCancion){
         try{
+            ArtistaServiceBD artistaServiceBD = new ArtistaServiceBD();
             Statement senten = ConexionUtil.openStatement();
             ResultSet result = null;
             synchronized (senten){
@@ -201,7 +202,7 @@ public class UsuarioServiceBD implements UsuarioService {
                 Cancion cancion=new Cancion(
                         Integer.parseInt(result.getString(1)),
                         Integer.parseInt(result.getString(2)),
-                        Integer.parseInt(result.getString(3)),
+                        artistaServiceBD.getNombreArtistaById(result.getString(3)),
                         result.getString(4),
                         result.getString(5),
                         result.getString(6),
